@@ -29,8 +29,4 @@ class SettingsCoordinator: CoordinatorProtocol {
         window.contentView = contentView
         window.makeKeyAndOrderFront(nil)
     }
-    
-    deinit {
-        print("deinit")
-    }
 }

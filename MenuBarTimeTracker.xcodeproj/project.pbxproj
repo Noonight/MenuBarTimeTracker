@@ -8,23 +8,47 @@
 
 /* Begin PBXBuildFile section */
 		D90DF037265F718800BC4B27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90DF036265F718800BC4B27 /* AppDelegate.swift */; };
-		D90DF039265F718800BC4B27 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90DF038265F718800BC4B27 /* ContentView.swift */; };
+		D90DF039265F718800BC4B27 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90DF038265F718800BC4B27 /* MainView.swift */; };
 		D90DF03C265F718800BC4B27 /* MenuBarTimeTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D90DF03A265F718800BC4B27 /* MenuBarTimeTracker.xcdatamodeld */; };
 		D90DF03E265F718C00BC4B27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D90DF03D265F718C00BC4B27 /* Assets.xcassets */; };
 		D90DF041265F718C00BC4B27 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D90DF040265F718C00BC4B27 /* Preview Assets.xcassets */; };
 		D90DF044265F718C00BC4B27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D90DF042265F718C00BC4B27 /* Main.storyboard */; };
+		D90DF052265F730C00BC4B27 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90DF051265F730C00BC4B27 /* StatusBarController.swift */; };
+		D90DF05B265F7C1D00BC4B27 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90DF05A265F7C1D00BC4B27 /* EventMonitor.swift */; };
+		D9876FF72660EADA00FB05CC /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9876FF62660EADA00FB05CC /* MenuController.swift */; };
+		D987701E2660EFDC00FB05CC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D987701D2660EFDC00FB05CC /* SettingsView.swift */; };
+		D98770252660F51800FB05CC /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98770242660F51800FB05CC /* SettingsCoordinator.swift */; };
+		D98770282660F53C00FB05CC /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98770272660F53C00FB05CC /* CoordinatorProtocol.swift */; };
+		D9877030266100CD00FB05CC /* MenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D987702F266100CD00FB05CC /* MenuCoordinator.swift */; };
+		D98770332661037500FB05CC /* MenuCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98770322661037500FB05CC /* MenuCoordinatorProtocol.swift */; };
+		D987703B2661162300FB05CC /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D987703A2661162300FB05CC /* Settings.swift */; };
+		D987703F2661193C00FB05CC /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D987703E2661193C00FB05CC /* AboutView.swift */; };
+		D9877042266119BC00FB05CC /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9877041266119BC00FB05CC /* About.swift */; };
+		D987704726611A7600FB05CC /* AboutCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D987704626611A7500FB05CC /* AboutCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D90DF033265F718800BC4B27 /* MenuBarTimeTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuBarTimeTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D90DF036265F718800BC4B27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D90DF038265F718800BC4B27 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D90DF038265F718800BC4B27 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		D90DF03B265F718800BC4B27 /* MenuBarTimeTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MenuBarTimeTracker.xcdatamodel; sourceTree = "<group>"; };
 		D90DF03D265F718C00BC4B27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D90DF040265F718C00BC4B27 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D90DF043265F718C00BC4B27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D90DF045265F718C00BC4B27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D90DF046265F718C00BC4B27 /* MenuBarTimeTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MenuBarTimeTracker.entitlements; sourceTree = "<group>"; };
+		D90DF051265F730C00BC4B27 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
+		D90DF05A265F7C1D00BC4B27 /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
+		D9876FF62660EADA00FB05CC /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		D987701D2660EFDC00FB05CC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D98770242660F51800FB05CC /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		D98770272660F53C00FB05CC /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
+		D987702F266100CD00FB05CC /* MenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCoordinator.swift; sourceTree = "<group>"; };
+		D98770322661037500FB05CC /* MenuCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCoordinatorProtocol.swift; sourceTree = "<group>"; };
+		D987703A2661162300FB05CC /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		D987703E2661193C00FB05CC /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		D9877041266119BC00FB05CC /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
+		D987704626611A7500FB05CC /* AboutCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,13 +81,12 @@
 		D90DF035265F718800BC4B27 /* MenuBarTimeTracker */ = {
 			isa = PBXGroup;
 			children = (
-				D90DF036265F718800BC4B27 /* AppDelegate.swift */,
-				D90DF038265F718800BC4B27 /* ContentView.swift */,
-				D90DF03D265F718C00BC4B27 /* Assets.xcassets */,
-				D90DF042265F718C00BC4B27 /* Main.storyboard */,
+				D98770232660F4FE00FB05CC /* Coordinator */,
+				D90DF057265F786800BC4B27 /* Resources */,
+				D90DF056265F785300BC4B27 /* CoreData */,
+				D90DF04D265F71AC00BC4B27 /* UI */,
 				D90DF045265F718C00BC4B27 /* Info.plist */,
 				D90DF046265F718C00BC4B27 /* MenuBarTimeTracker.entitlements */,
-				D90DF03A265F718800BC4B27 /* MenuBarTimeTracker.xcdatamodeld */,
 				D90DF03F265F718C00BC4B27 /* Preview Content */,
 			);
 			path = MenuBarTimeTracker;
@@ -75,6 +98,107 @@
 				D90DF040265F718C00BC4B27 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D90DF04D265F71AC00BC4B27 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D98770212660F4C100FB05CC /* Main */,
+				D90DF050265F723300BC4B27 /* StatusBar */,
+				D987701C2660EFD100FB05CC /* Setting */,
+				D987703D2661192A00FB05CC /* About */,
+				D90DF036265F718800BC4B27 /* AppDelegate.swift */,
+				D90DF042265F718C00BC4B27 /* Main.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		D90DF050265F723300BC4B27 /* StatusBar */ = {
+			isa = PBXGroup;
+			children = (
+				D90DF051265F730C00BC4B27 /* StatusBarController.swift */,
+				D90DF05A265F7C1D00BC4B27 /* EventMonitor.swift */,
+				D987704926611B0D00FB05CC /* Menu */,
+			);
+			path = StatusBar;
+			sourceTree = "<group>";
+		};
+		D90DF056265F785300BC4B27 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				D90DF03A265F718800BC4B27 /* MenuBarTimeTracker.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		D90DF057265F786800BC4B27 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D90DF03D265F718C00BC4B27 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D987701C2660EFD100FB05CC /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				D987701D2660EFDC00FB05CC /* SettingsView.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		D98770212660F4C100FB05CC /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				D90DF038265F718800BC4B27 /* MainView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		D98770232660F4FE00FB05CC /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				D987702F266100CD00FB05CC /* MenuCoordinator.swift */,
+				D98770242660F51800FB05CC /* SettingsCoordinator.swift */,
+				D987704626611A7500FB05CC /* AboutCoordinator.swift */,
+				D98770392661161600FB05CC /* Menu */,
+				D98770362661037C00FB05CC /* Base */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		D98770362661037C00FB05CC /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				D98770322661037500FB05CC /* MenuCoordinatorProtocol.swift */,
+				D98770272660F53C00FB05CC /* CoordinatorProtocol.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		D98770392661161600FB05CC /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				D987703A2661162300FB05CC /* Settings.swift */,
+				D9877041266119BC00FB05CC /* About.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		D987703D2661192A00FB05CC /* About */ = {
+			isa = PBXGroup;
+			children = (
+				D987703E2661193C00FB05CC /* AboutView.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		D987704926611B0D00FB05CC /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				D9876FF62660EADA00FB05CC /* MenuController.swift */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,9 +271,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D90DF039265F718800BC4B27 /* ContentView.swift in Sources */,
+				D987701E2660EFDC00FB05CC /* SettingsView.swift in Sources */,
+				D90DF039265F718800BC4B27 /* MainView.swift in Sources */,
+				D90DF05B265F7C1D00BC4B27 /* EventMonitor.swift in Sources */,
+				D90DF052265F730C00BC4B27 /* StatusBarController.swift in Sources */,
+				D987703F2661193C00FB05CC /* AboutView.swift in Sources */,
+				D98770252660F51800FB05CC /* SettingsCoordinator.swift in Sources */,
 				D90DF037265F718800BC4B27 /* AppDelegate.swift in Sources */,
+				D987703B2661162300FB05CC /* Settings.swift in Sources */,
+				D9877030266100CD00FB05CC /* MenuCoordinator.swift in Sources */,
+				D9877042266119BC00FB05CC /* About.swift in Sources */,
+				D9876FF72660EADA00FB05CC /* MenuController.swift in Sources */,
 				D90DF03C265F718800BC4B27 /* MenuBarTimeTracker.xcdatamodeld in Sources */,
+				D987704726611A7600FB05CC /* AboutCoordinator.swift in Sources */,
+				D98770332661037500FB05CC /* MenuCoordinatorProtocol.swift in Sources */,
+				D98770282660F53C00FB05CC /* CoordinatorProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +436,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = my.aiur.MenuBarTimeTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -324,6 +461,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = my.aiur.MenuBarTimeTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

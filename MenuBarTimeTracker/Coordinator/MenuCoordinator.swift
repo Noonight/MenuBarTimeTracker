@@ -10,19 +10,19 @@ import Cocoa
 
 class MenuCoordinator: MenuCoordinatorProtocol, Settings, About {
     
-    var window: NSWindow
+    var windowController: NSWindowController
     
-    required init(window: NSWindow) {
-        self.window = window
+    required init(windowController: NSWindowController) {
+        self.windowController = windowController
     }
     
     func presentSettings() {
-        let child = SettingsCoordinator(window: window)
+        let child = SettingsCoordinator(windowController: windowController)
         child.start()
     }
     
     func presentAbout() {
-        let child = AboutCoordinator(window: window)
+        let child = AboutCoordinator(windowController: windowController)
         child.start()
     }
 }

@@ -10,16 +10,16 @@ import SwiftUI
 
 class SettingsCoordinator: CoordinatorProtocol {
     
-    var window: NSWindow
+    var windowController: NSWindowController
     
-    required init(window: NSWindow) {
-        self.window = window
+    required init(windowController: NSWindowController) {
+        self.windowController = windowController
     }
     
     func start() {
         let contentView = NSHostingView(rootView: SettingsView())
         
-        window = NSWindow(
+        let window = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 360, height: 460),
             styleMask: [.titled, .closable, .fullSizeContentView],
             backing: .buffered, defer: false)
@@ -28,5 +28,7 @@ class SettingsCoordinator: CoordinatorProtocol {
         window.title = "Settings"
         window.contentView = contentView
         window.makeKeyAndOrderFront(nil)
+        
+        windowController.window = window
     }
 }

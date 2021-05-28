@@ -11,16 +11,13 @@ import SwiftUI
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    var window: NSWindow!
+    var windowController: NSWindowController!
     var popover: NSPopover!
     var statusBar: StatusBarController?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-
-        window = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 1000, height: 1000),
-            styleMask: [.titled, .closable, .fullSizeContentView],
-            backing: .buffered, defer: false)
+        
+        windowController = NSWindowController(window: nil)
         
         let contentView = MainView()
         
@@ -31,7 +28,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.contentViewController = NSHostingController(rootView: contentView)
         popover.contentViewController?.view.window?.becomeKey()
         
-        statusBar = StatusBarController(popover, menu: MenuController(coordinator: MenuCoordinator(window: window)))
+        statusBar = StatusBarController(popover, menu: MenuController(coordinator: MenuCoordinator(windowController: windowController)))
     }
 }
 

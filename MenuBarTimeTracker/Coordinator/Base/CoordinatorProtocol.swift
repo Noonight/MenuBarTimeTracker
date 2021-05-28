@@ -9,9 +9,9 @@ import Foundation
 import Cocoa
 
 protocol CoordinatorProtocol: AnyObject {
-    var window: NSWindow { get set }
+    var windowController: NSWindowController { get set }
     
-    init(window: NSWindow)
+    init(windowController: NSWindowController)
     
     func start()
 }

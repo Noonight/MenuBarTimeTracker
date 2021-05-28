@@ -9,7 +9,7 @@ import Foundation
 import Cocoa
 
 protocol MenuCoordinatorProtocol: AnyObject {
-    var window: NSWindow { get set }
+    var windowController: NSWindowController { get set }
     
-    init(window: NSWindow)
+    init(windowController: NSWindowController)
 }

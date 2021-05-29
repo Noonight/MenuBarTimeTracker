@@ -10,15 +10,14 @@ import SwiftUI
 
 class AboutCoordinator: CoordinatorProtocol {
     weak var parent: MenuCoordinatorProtocol?
-    var windowController: WindowController
+    var windowController: NSWindowController
     
     private let contentView = NSHostingView(rootView: AboutView())
     
-    required init(windowController: WindowController) {
+    required init(windowController: NSWindowController) {
         self.windowController = windowController
-        self.windowController.delegate = self
         
-        let window = NSWindow(
+        let window = ClosableWindow(
             contentRect: NSRect(x: 0, y: 0, width: 360, height: 460),
             styleMask: [.titled, .closable, .fullSizeContentView],
             backing: .buffered, defer: false)
@@ -26,6 +25,8 @@ class AboutCoordinator: CoordinatorProtocol {
         window.setFrameAutosaveName("About Window")
         window.title = "About"
         window.contentView = contentView
+        
+        window.closableDelegate = self
         
         windowController.window = window
     }
@@ -39,8 +40,8 @@ class AboutCoordinator: CoordinatorProtocol {
     }
 }
 
-extension AboutCoordinator: WindowControllerDelegate {
-    func windowShouldClose() {
+extension AboutCoordinator: ClosableWindowDelegate {
+    func close() {
         finish()
     }
 }

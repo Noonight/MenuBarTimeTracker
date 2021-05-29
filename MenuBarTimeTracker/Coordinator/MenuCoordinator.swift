@@ -9,19 +9,14 @@ import Foundation
 import Cocoa
 
 class MenuCoordinator: MenuCoordinatorProtocol, Settings, About {
-    var childs: [CoordinatorProtocol] = [CoordinatorProtocol]() {
-        didSet {
-            print(childs)
-        }
-    }
-    var windowController: WindowController
+    var childs: [CoordinatorProtocol] = [CoordinatorProtocol]()
+    var windowController: NSWindowController
     
-    required init(windowController: WindowController) {
+    required init(windowController: NSWindowController) {
         self.windowController = windowController
     }
     
     func childDidFinish(child: CoordinatorProtocol) {
-        print(child)
         for (index, coordinator) in childs.enumerated() {
             if coordinator === child {
                 childs.remove(at: index)
@@ -46,6 +41,5 @@ class MenuCoordinator: MenuCoordinatorProtocol, Settings, About {
             childs.append(child)
             child.start()
         }
-        
     }
 }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AboutView: View {
+    
     var body: some View {
         Text("Made via SwiftUI 2")
             .padding()

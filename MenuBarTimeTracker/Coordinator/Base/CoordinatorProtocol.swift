@@ -10,9 +10,9 @@ import Cocoa
 
 protocol CoordinatorProtocol: AnyObject {
     var parent: MenuCoordinatorProtocol? { get set }
-    var windowController: WindowController { get set }
+    var windowController: NSWindowController { get set }
     
-    init(windowController: WindowController)
+    init(windowController: NSWindowController)
     
     func start()
     

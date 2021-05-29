@@ -25,7 +25,7 @@
 		D987703F2661193C00FB05CC /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D987703E2661193C00FB05CC /* AboutView.swift */; };
 		D9877042266119BC00FB05CC /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9877041266119BC00FB05CC /* About.swift */; };
 		D987704726611A7600FB05CC /* AboutCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D987704626611A7500FB05CC /* AboutCoordinator.swift */; };
-		D987704C2661422C00FB05CC /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D987704B2661422C00FB05CC /* WindowController.swift */; };
+		D987705326622D4F00FB05CC /* ClosableWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D987705226622D4F00FB05CC /* ClosableWindow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,7 +50,7 @@
 		D987703E2661193C00FB05CC /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		D9877041266119BC00FB05CC /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
 		D987704626611A7500FB05CC /* AboutCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCoordinator.swift; sourceTree = "<group>"; };
-		D987704B2661422C00FB05CC /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		D987705226622D4F00FB05CC /* ClosableWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosableWindow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,7 +174,7 @@
 			children = (
 				D98770322661037500FB05CC /* MenuCoordinatorProtocol.swift */,
 				D98770272660F53C00FB05CC /* CoordinatorProtocol.swift */,
-				D987704B2661422C00FB05CC /* WindowController.swift */,
+				D987705226622D4F00FB05CC /* ClosableWindow.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -281,13 +281,13 @@
 				D987703F2661193C00FB05CC /* AboutView.swift in Sources */,
 				D98770252660F51800FB05CC /* SettingsCoordinator.swift in Sources */,
 				D90DF037265F718800BC4B27 /* AppDelegate.swift in Sources */,
+				D987705326622D4F00FB05CC /* ClosableWindow.swift in Sources */,
 				D987703B2661162300FB05CC /* Settings.swift in Sources */,
 				D9877030266100CD00FB05CC /* MenuCoordinator.swift in Sources */,
 				D9877042266119BC00FB05CC /* About.swift in Sources */,
 				D9876FF72660EADA00FB05CC /* MenuController.swift in Sources */,
 				D90DF03C265F718800BC4B27 /* MenuBarTimeTracker.xcdatamodeld in Sources */,
 				D987704726611A7600FB05CC /* AboutCoordinator.swift in Sources */,
-				D987704C2661422C00FB05CC /* WindowController.swift in Sources */,
 				D98770332661037500FB05CC /* MenuCoordinatorProtocol.swift in Sources */,
 				D98770282660F53C00FB05CC /* CoordinatorProtocol.swift in Sources */,
 			);

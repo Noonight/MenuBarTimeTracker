@@ -11,13 +11,14 @@ import SwiftUI
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    var windowController: NSWindowController!
+    var windowController: WindowController!
     var popover: NSPopover!
     var statusBar: StatusBarController?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         
-        windowController = NSWindowController(window: nil)
+//        windowController = NSWindowController(window: nil)
+        windowController = WindowController(window: nil)
         
         let contentView = MainView()
         

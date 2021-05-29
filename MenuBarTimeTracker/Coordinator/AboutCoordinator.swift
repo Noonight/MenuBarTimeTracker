@@ -9,15 +9,14 @@ import Cocoa
 import SwiftUI
 
 class AboutCoordinator: CoordinatorProtocol {
+    weak var parent: MenuCoordinatorProtocol?
+    var windowController: WindowController
     
-    var windowController: NSWindowController
+    private let contentView = NSHostingView(rootView: AboutView())
     
-    required init(windowController: NSWindowController) {
+    required init(windowController: WindowController) {
         self.windowController = windowController
-    }
-    
-    func start() {
-        let contentView = NSHostingView(rootView: AboutView())
+        self.windowController.delegate = self
         
         let window = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 360, height: 460),
@@ -27,8 +26,21 @@ class AboutCoordinator: CoordinatorProtocol {
         window.setFrameAutosaveName("About Window")
         window.title = "About"
         window.contentView = contentView
-        window.makeKeyAndOrderFront(nil)
         
         windowController.window = window
+    }
+    
+    func start() {
+        windowController.showWindow(nil)
+    }
+    
+    func finish() {
+        parent?.childDidFinish(child: self)
+    }
+}
+
+extension AboutCoordinator: WindowControllerDelegate {
+    func windowShouldClose() {
+        finish()
     }
 }

@@ -12,7 +12,7 @@ class StatusBarController: NSObject {
     private var popover: NSPopover!
     private var statusBarIcon: NSImage = {
         let icon = NSImage(named: "StatusBarIcon")
-        icon?.size = NSSize(width: 16.0, height: 16.0)
+        icon?.size = statusBarIconSize
         icon?.isTemplate = true
         return icon!
     }()
@@ -37,7 +37,7 @@ class StatusBarController: NSObject {
             statusBarButton.sendAction(on: [.leftMouseUp, .rightMouseUp])
         }
         
-        eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown], handler: mouseEventHandler)
+//        eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown], handler: mouseEventHandler)
     }
     
     @objc func togglePopover(sender: NSStatusItem) {

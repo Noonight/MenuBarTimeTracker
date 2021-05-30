@@ -7,17 +7,27 @@
 
 import SwiftUI
 
-struct TaskCell: View {
+struct TaskCell: View, ChoosedProtocol {
+    typealias ChoosedModel = Task
     
-    let task: Task
+    var choosed: Bool
+    var model: ChoosedModel
+    var choosedDelegate: ChoosedProtocolDelegate?
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(task.name ?? "")
+            Text(model.name ?? "")
                 .font(.title2)
-            Text(task.describe ?? "")
+            Text(model.describe ?? "")
                 .font(.caption)
                 .fontWeight(.light)
+        }
+        .frame(minWidth: .zero, maxWidth: .infinity, alignment: .leading)
+        .padding(4)
+        .background(choosed ? Color(NSColor.selectedControlColor) : nil)
+        .cornerRadius(5)
+        .onTapGesture {
+            choosedDelegate?.setChoosed(model: model)
         }
     }
 }

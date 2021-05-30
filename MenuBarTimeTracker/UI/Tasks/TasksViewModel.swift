@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol TasksViewModelProtocol {
+protocol TasksViewModelProtocol: OneOfManyChooseProtocol {
     var tasks: [Task] { get set }
     
     func onAppear()
@@ -15,20 +15,47 @@ protocol TasksViewModelProtocol {
 }
 
 final class TasksViewModel: ObservableObject, TasksViewModelProtocol {
+    typealias DataModel = Task
+    @Published var choosed: DataModel?
+    
     @Published var tasks: [Task] = [Task]()
     
     private var coreDataService: TaskCoreDataServiceProtocol
+    private var userDefaultsService: TaskUserDefaultsProtocol
     
-    init(coreDataService: TaskCoreDataServiceProtocol = CoreDataService.shared) {
+    init(coreDataService: TaskCoreDataServiceProtocol = CoreDataService.shared,
+         userDefaultsService: TaskUserDefaultsProtocol = UserDefaultsService.shared) {
         self.coreDataService = coreDataService
+        self.userDefaultsService = userDefaultsService
     }
     
     func onAppear() {
         fetchTasks()
+        fetchCurrentTask()
     }
     
     func fetchTasks() {
         tasks = coreDataService.fetchTasks()
+    }
+    
+    func fetchCurrentTask() {
+        guard let currentTaskUUID = userDefaultsService.getCurrentTaskID() else { return }
+        choosed = coreDataService.findByUUID(uuid: currentTaskUUID)
+    }
+    
+    func isModelChoosed(_ model: DataModel) -> Bool {
+        if choosed == model {
+            return true
+        }
+        return false
+    }
+    
+    func setChoosed<DataModel>(model: DataModel) {
+        if let uuid = (model as! Task).id {
+            userDefaultsService.setCurrentTaskID(uuid)
+        }
+        choosed = model as? Task
+        fetchTasks()
     }
 }
 

@@ -51,7 +51,7 @@ extension CoreDataService: TaskTimeCoreDataServiceProtocol {
     }
     
     func findByUUID(uuid: UUID) -> TaskTime? {
-        let result = coreDataHelper.fetchFirst(TaskTime.self, predicate: NSPredicate(format: "id = %@", uuid.uuidString))
+        let result = coreDataHelper.fetchFirst(TaskTime.self, predicate: NSPredicate(format: "id == %@", uuid as CVarArg))
         switch result {
         case .success(let taskTime):
             return taskTime
@@ -90,7 +90,7 @@ extension CoreDataService: TaskTimeCoreDataServiceProtocol {
 
 extension CoreDataService: TaskCoreDataServiceProtocol {
     func findByUUID(uuid: UUID) -> Task? {
-        let result = coreDataHelper.fetchFirst(Task.self, predicate: NSPredicate(format: "id = %@", uuid.uuidString))
+        let result = coreDataHelper.fetchFirst(Task.self, predicate: NSPredicate(format: "id == %@", uuid as CVarArg))
         switch result {
         case .success(let task):
             return task

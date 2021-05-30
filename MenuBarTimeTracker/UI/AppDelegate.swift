@@ -16,7 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var statusBar: StatusBarController?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        let context = CoreDataHelper.shared.context
+        let _ = CoreDataHelper.shared.context
         
         windowController = NSWindowController(window: nil)
         

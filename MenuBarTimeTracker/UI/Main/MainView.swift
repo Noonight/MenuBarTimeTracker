@@ -11,16 +11,16 @@ struct MainView: View {
     
     @StateObject var viewModel = MainViewModel()
     
-    @State var showTasksSheet: Bool = false
-    
     var body: some View {
         ZStack {
             empty
             VStack {
-                VStack(alignment: .center, spacing: 8) {
+                VStack(alignment: .center, spacing: 4) {
                     Text("00:00")
                         .font(.largeTitle)
-                    Text(viewModel.currentTask?.name ?? "---")
+                    Text(viewModel.currentTask?.name ?? currentTaskPlaceholder)
+                        .font(.caption)
+                        .fontWeight(.light)
                 }
                 
                 ScrollView {
@@ -36,11 +36,11 @@ struct MainView: View {
                 HStack {
                     
                     Button {
-                        showTasksSheet = true
+                        viewModel.showTasksPopover = true
                     } label: {
-                        Image(systemName: showTasksSheet ? "cursorarrow.click" : "cursorarrow.click.2")
+                        Image(systemName: viewModel.showTasksPopover ? "cursorarrow.click" : "cursorarrow.click.2")
                     }
-                    .popover(isPresented: $showTasksSheet) { TasksView(isShowedSheet: $showTasksSheet) }
+                    .popover(isPresented: $viewModel.showTasksPopover) { TasksView(isShowedSheet: $viewModel.showTasksPopover) }
                     
                     Spacer()
                     
@@ -48,8 +48,9 @@ struct MainView: View {
                     
                     Spacer()
                 }
+                .padding(.leading, 8)
             }
-            .padding(.bottom, 4)
+            .padding(.bottom, 8)
             .onAppear {
                 viewModel.onAppear()
             }
@@ -102,7 +103,7 @@ struct MainView: View {
         if viewModel.previousTimes.count == 0 {
             VStack(alignment: .center, spacing: 8) {
                 Image(systemName: "moon.stars.fill")
-                Text("There's no time intervals for today")
+                Text("There's no intervals for today")
                     .multilineTextAlignment(.center)
             }
         }

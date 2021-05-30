@@ -72,7 +72,7 @@ extension CoreDataHelper: DBHelperProtocol {
         let result = fetch(objectType, predicate: predicate, limit: 1)
         switch result {
         case .success(let todos):
-            return .success(todos.first as? T)
+            return .success(todos.first)
         case .failure(let error):
             return .failure(error)
         }

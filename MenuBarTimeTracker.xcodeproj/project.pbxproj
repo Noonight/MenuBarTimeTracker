@@ -45,6 +45,8 @@
 		D9CDEF0E266294EC00AD6564 /* WindowSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CDEF0D266294EC00AD6564 /* WindowSize.swift */; };
 		D9CDEF122663764900AD6564 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CDEF112663764800AD6564 /* UserDefaultsService.swift */; };
 		D9CDEF172663D01900AD6564 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CDEF162663D01900AD6564 /* Text.swift */; };
+		D9CDEF1E2663EF4900AD6564 /* TimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CDEF1D2663EF4900AD6564 /* TimerService.swift */; };
+		D9CDEF212663F54300AD6564 /* TimeInterval+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CDEF202663F54300AD6564 /* TimeInterval+String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +91,8 @@
 		D9CDEF0D266294EC00AD6564 /* WindowSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowSize.swift; sourceTree = "<group>"; };
 		D9CDEF112663764800AD6564 /* UserDefaultsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 		D9CDEF162663D01900AD6564 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		D9CDEF1D2663EF4900AD6564 /* TimerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerService.swift; sourceTree = "<group>"; };
+		D9CDEF202663F54300AD6564 /* TimeInterval+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+String.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +276,7 @@
 			isa = PBXGroup;
 			children = (
 				D9CDEEC226623AF000AD6564 /* View+Frame.swift */,
+				D9CDEF202663F54300AD6564 /* TimeInterval+String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -310,6 +315,7 @@
 			children = (
 				D9CDEF112663764800AD6564 /* UserDefaultsService.swift */,
 				D9CDEEF026624BD700AD6564 /* CoreDataService.swift */,
+				D9CDEF1D2663EF4900AD6564 /* TimerService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -430,6 +436,7 @@
 				D9CDEEF126624BD700AD6564 /* CoreDataService.swift in Sources */,
 				D9CDEEFC2662706E00AD6564 /* TasksViewModel.swift in Sources */,
 				D9CDEED62662455B00AD6564 /* DateHelper.swift in Sources */,
+				D9CDEF1E2663EF4900AD6564 /* TimerService.swift in Sources */,
 				D987701E2660EFDC00FB05CC /* SettingsView.swift in Sources */,
 				D90DF039265F718800BC4B27 /* MainView.swift in Sources */,
 				D9CDEEF926626F9F00AD6564 /* TaskCell.swift in Sources */,
@@ -446,6 +453,7 @@
 				D90DF037265F718800BC4B27 /* AppDelegate.swift in Sources */,
 				D9CDEEE6266248F300AD6564 /* TaskTime+CoreDataProperties.swift in Sources */,
 				D987705326622D4F00FB05CC /* ClosableWindow.swift in Sources */,
+				D9CDEF212663F54300AD6564 /* TimeInterval+String.swift in Sources */,
 				D9CDEF012662718500AD6564 /* CreateTaskView.swift in Sources */,
 				D9CDEEE0266248C700AD6564 /* Task+CoreDataProperties.swift in Sources */,
 				D9CDEEE5266248F300AD6564 /* TaskTime+CoreDataClass.swift in Sources */,

@@ -16,7 +16,7 @@ struct MainView: View {
             empty
             VStack {
                 VStack(alignment: .center, spacing: 4) {
-                    Text("00:00")
+                    Text(viewModel.timerInterval.toString())
                         .font(.largeTitle)
                     Text(viewModel.currentTask?.name ?? currentTaskPlaceholder)
                         .font(.caption)
@@ -62,13 +62,13 @@ struct MainView: View {
         case .tracking:
             HStack {
                 Button {
-                    
+                    viewModel.pauseTimer()
                 } label: {
                     Image(systemName: "pause.fill")
                         .foregroundColor(.red)
                 }
                 Button {
-                    
+                    viewModel.stopTimer()
                 } label: {
                     Image(systemName: "stop.fill")
                         .foregroundColor(.red)
@@ -77,21 +77,21 @@ struct MainView: View {
         case .pause:
             HStack {
                 Button {
-                    
-                } label: {
-                    Image(systemName: "stop.fill")
-                        .foregroundColor(.red)
-                }
-                Button {
-                    
+                    viewModel.startTimer()
                 } label: {
                     Image(systemName: "arrowtriangle.right.fill")
                         .foregroundColor(.red)
                 }
+                Button {
+                    viewModel.stopTimer()
+                } label: {
+                    Image(systemName: "stop.fill")
+                        .foregroundColor(.red)
+                }
             }
-        case .inactive:
+        case .stop:
             Button {
-                
+                viewModel.startTimer()
             } label: {
                 Image(systemName: "arrowtriangle.right.fill")
                     .foregroundColor(.red)
@@ -104,6 +104,8 @@ struct MainView: View {
             VStack(alignment: .center, spacing: 8) {
                 Image(systemName: "moon.stars.fill")
                 Text("There's no intervals for today")
+                    .font(.caption)
+                    .fontWeight(.light)
                     .multilineTextAlignment(.center)
             }
         }

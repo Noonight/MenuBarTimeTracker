@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol MainViewModelProtocol {
-    var timer: TimeInterval { get set }
+    var timerInterval: TimeInterval { get set }
     var timerState: TimerState { get set }
     var previousTimes: [TaskTime] { get set }
     var currentTask: Task? { get set }
@@ -19,10 +19,14 @@ protocol MainViewModelProtocol {
     func onAppear()
     func fetchTimes()
     func fetchCurrentTask()
+    
+    func startTimer()
+    func pauseTimer()
+    func stopTimer()
 }
 
 final class MainViewModel: ObservableObject, MainViewModelProtocol {
-    @Published var timer: TimeInterval = TimeInterval.init()
+    @Published var timerInterval: TimeInterval = TimeInterval.init()
     @Published var timerState: TimerState = .pause
     @Published var previousTimes: [TaskTime] = [TaskTime]()
     @Published var currentTask: Task? = nil
@@ -31,14 +35,16 @@ final class MainViewModel: ObservableObject, MainViewModelProtocol {
     
     private var coreDataService: (TaskTimeCoreDataServiceProtocol & TaskCoreDataServiceProtocol)
     private var userDefaultsService: TaskUserDefaultsProtocol
-    // timer service
+    private var timerService: TimerService
     
     private var cancellableSet: Set<AnyCancellable> = []
     
     init(coreDataService: (TaskTimeCoreDataServiceProtocol & TaskCoreDataServiceProtocol) = CoreDataService.shared,
-         userDefaultsService: TaskUserDefaultsProtocol = UserDefaultsService.shared) {
+         userDefaultsService: TaskUserDefaultsProtocol = UserDefaultsService.shared,
+         timerService: TimerService = TimerService.shared) {
         self.coreDataService = coreDataService
         self.userDefaultsService = userDefaultsService
+        self.timerService = timerService
         
         $showTasksPopover
             .filter { $0 == false }
@@ -46,6 +52,18 @@ final class MainViewModel: ObservableObject, MainViewModelProtocol {
             .sink { value in
                 self.fetchCurrentTask()
             }
+            .store(in: &cancellableSet)
+        
+        timerService
+            .$interval
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.timerInterval, on: self)
+            .store(in: &cancellableSet)
+        
+        timerService
+            .$state
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.timerState, on: self)
             .store(in: &cancellableSet)
     }
     
@@ -61,5 +79,17 @@ final class MainViewModel: ObservableObject, MainViewModelProtocol {
     func fetchCurrentTask() {
         guard let uuid = userDefaultsService.getCurrentTaskID() else { return }
         currentTask = coreDataService.findByUUID(uuid: uuid)
+    }
+    
+    func startTimer() {
+        timerService.start()
+    }
+    
+    func pauseTimer() {
+        timerService.pause()
+    }
+    
+    func stopTimer() {
+        timerService.stop()
     }
 }

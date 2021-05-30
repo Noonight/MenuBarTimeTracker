@@ -10,5 +10,5 @@ import Foundation
 enum TimerState {
     case tracking
     case pause
-    case inactive
+    case stop
 }

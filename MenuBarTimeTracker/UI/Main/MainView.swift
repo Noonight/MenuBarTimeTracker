@@ -19,7 +19,7 @@ struct MainView: View {
                     Text(viewModel.timerInterval.toString())
                         .font(.largeTitle)
                     Text(viewModel.currentTask?.name ?? currentTaskPlaceholder)
-                        .font(.caption)
+                        .font(.title3)
                         .fontWeight(.light)
                 }
                 
@@ -51,6 +51,7 @@ struct MainView: View {
                 .padding(.leading, 8)
             }
             .padding(.bottom, 8)
+            .padding(.top, 4)
             .onAppear {
                 viewModel.onAppear()
             }

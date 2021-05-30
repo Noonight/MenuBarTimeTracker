@@ -90,6 +90,17 @@ final class MainViewModel: ObservableObject, MainViewModelProtocol {
     }
     
     func stopTimer() {
+        
+        guard let curTask = currentTask,
+              let zeroDate = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: Date())
+        else { return }
+        let curDate = Date(timeInterval: timerInterval, since: zeroDate)
+    
+        coreDataService.addTaskTime(
+            time: curDate,
+            task: curTask)
+        
+        fetchTimes()
         timerService.stop()
     }
 }

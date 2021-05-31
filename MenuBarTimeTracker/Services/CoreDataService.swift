@@ -9,7 +9,7 @@ import Foundation
 
 protocol TaskTimeCoreDataServiceProtocol {
     func findByUUID(uuid: UUID) -> TaskTime?
-    func fetchTaskTimes(sortBy: TaskTimeSortOptions?) -> [TaskTime]
+    func fetchTaskTimes(sortBy: TaskTimeSortOptions?, filterByTask: Task?) -> [TaskTime]
     func addTaskTime(time: Date, task: Task)
     func deleteTaskTime(taskTime: TaskTime)
     func updateTaskTime(_ taskTime: TaskTime)
@@ -49,7 +49,7 @@ extension CoreDataService: TaskTimeCoreDataServiceProtocol {
         }
     }
     
-    func fetchTaskTimes(sortBy: TaskTimeSortOptions?) -> [TaskTime] {
+    func fetchTaskTimes(sortBy: TaskTimeSortOptions? = nil, filterByTask: Task? = nil) -> [TaskTime] {
         var result: Result<[TaskTime], Error>
         
         var sortDescription: [NSSortDescriptor] = [NSSortDescriptor]()
@@ -59,8 +59,14 @@ extension CoreDataService: TaskTimeCoreDataServiceProtocol {
         if sortBy == .older {
             sortDescription.append(NSSortDescriptor(key: "time", ascending: true))
         }
+        var filterPredicate: NSPredicate?
+        if let task = filterByTask {
+            filterPredicate = NSPredicate(format: "task == %@", task)
+            result = coreDataHelper.fetch(TaskTime.self, predicate: filterPredicate, sort: sortDescription)
+        } else {
+            result = coreDataHelper.fetch(TaskTime.self, sort: sortDescription)
+        }
         
-        result = coreDataHelper.fetch(TaskTime.self, sort: sortDescription)
         switch result {
         case .success(let taskTimes):
             return taskTimes

@@ -51,6 +51,7 @@ final class MainViewModel: ObservableObject, MainViewModelProtocol {
             .receive(on: DispatchQueue.main)
             .sink { value in
                 self.fetchCurrentTask()
+                self.fetchTimes()
             }
             .store(in: &cancellableSet)
         
@@ -68,12 +69,12 @@ final class MainViewModel: ObservableObject, MainViewModelProtocol {
     }
     
     func onAppear() {
-        fetchTimes()
         fetchCurrentTask()
+        fetchTimes()
     }
     
     func fetchTimes() {
-        previousTimes = coreDataService.fetchTaskTimes(sortBy: .newer)
+        previousTimes = coreDataService.fetchTaskTimes(sortBy: .newer, filterByTask: currentTask)
     }
     
     func fetchCurrentTask() {

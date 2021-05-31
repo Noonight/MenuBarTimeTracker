@@ -16,7 +16,7 @@ struct MainView: View {
             empty
             VStack {
                 VStack(alignment: .center, spacing: 4) {
-                    Text(viewModel.timerInterval.toString())
+                    Text(viewModel.timerInterval.toString(format: .HHmmss))
                         .font(.largeTitle)
                     Text(viewModel.currentTask?.name ?? currentTaskPlaceholder)
                         .font(.title3)
@@ -38,7 +38,7 @@ struct MainView: View {
                     Button {
                         viewModel.showTasksPopover = true
                     } label: {
-                        Image(systemName: viewModel.showTasksPopover ? "cursorarrow.click" : "cursorarrow.click.2")
+                        Image(systemName: viewModel.showTasksPopover ? "cursorarrow.click.2" : "cursorarrow.click")
                     }
                     .popover(isPresented: $viewModel.showTasksPopover) { TasksView(isShowedSheet: $viewModel.showTasksPopover) }
                     

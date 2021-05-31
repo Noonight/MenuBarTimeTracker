@@ -9,16 +9,10 @@ import Foundation
 
 protocol TaskTimeCoreDataServiceProtocol {
     func findByUUID(uuid: UUID) -> TaskTime?
-    func fetchTaskTimes() -> [TaskTime]
+    func fetchTaskTimes(sortBy: TaskTimeSortOptions?) -> [TaskTime]
     func addTaskTime(time: Date, task: Task)
     func deleteTaskTime(taskTime: TaskTime)
     func updateTaskTime(_ taskTime: TaskTime)
-}
-
-extension TaskTimeCoreDataServiceProtocol {
-    func fetchTaskTimes() -> [TaskTime] {
-        fetchTaskTimes()
-    }
 }
 
 protocol TaskCoreDataServiceProtocol {
@@ -27,12 +21,6 @@ protocol TaskCoreDataServiceProtocol {
     func addTask(name: String, description: String)
     func deleteTask(task: Task)
     func updateTask(_ task: Task)
-}
-
-extension TaskCoreDataServiceProtocol {
-    func fetchTasks() -> [Task] {
-        fetchTasks()
-    }
 }
 
 class CoreDataService {
@@ -61,9 +49,18 @@ extension CoreDataService: TaskTimeCoreDataServiceProtocol {
         }
     }
     
-    func fetchTaskTimes() -> [TaskTime] {
+    func fetchTaskTimes(sortBy: TaskTimeSortOptions?) -> [TaskTime] {
         var result: Result<[TaskTime], Error>
-        result = coreDataHelper.fetch(TaskTime.self)
+        
+        var sortDescription: [NSSortDescriptor] = [NSSortDescriptor]()
+        if sortBy == .newer {
+            sortDescription.append(NSSortDescriptor(key: "time", ascending: false))
+        }
+        if sortBy == .older {
+            sortDescription.append(NSSortDescriptor(key: "time", ascending: true))
+        }
+        
+        result = coreDataHelper.fetch(TaskTime.self, sort: sortDescription)
         switch result {
         case .success(let taskTimes):
             return taskTimes

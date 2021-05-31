@@ -15,6 +15,7 @@
 		D90DF044265F718C00BC4B27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D90DF042265F718C00BC4B27 /* Main.storyboard */; };
 		D90DF052265F730C00BC4B27 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90DF051265F730C00BC4B27 /* StatusBarController.swift */; };
 		D90DF05B265F7C1D00BC4B27 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90DF05A265F7C1D00BC4B27 /* EventMonitor.swift */; };
+		D975ACD926650CE1006CA0A4 /* TaskTimeSortOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D975ACD826650CE1006CA0A4 /* TaskTimeSortOptions.swift */; };
 		D9876FF72660EADA00FB05CC /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9876FF62660EADA00FB05CC /* MenuController.swift */; };
 		D987701E2660EFDC00FB05CC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D987701D2660EFDC00FB05CC /* SettingsView.swift */; };
 		D98770252660F51800FB05CC /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98770242660F51800FB05CC /* SettingsCoordinator.swift */; };
@@ -61,6 +62,7 @@
 		D90DF046265F718C00BC4B27 /* MenuBarTimeTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MenuBarTimeTracker.entitlements; sourceTree = "<group>"; };
 		D90DF051265F730C00BC4B27 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
 		D90DF05A265F7C1D00BC4B27 /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
+		D975ACD826650CE1006CA0A4 /* TaskTimeSortOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTimeSortOptions.swift; sourceTree = "<group>"; };
 		D9876FF62660EADA00FB05CC /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		D987701D2660EFDC00FB05CC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D98770242660F51800FB05CC /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				D9CDEEBD266234DE00AD6564 /* TimerState.swift */,
+				D975ACD826650CE1006CA0A4 /* TaskTimeSortOptions.swift */,
 			);
 			path = Private;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				D9CDEF1E2663EF4900AD6564 /* TimerService.swift in Sources */,
 				D987701E2660EFDC00FB05CC /* SettingsView.swift in Sources */,
 				D90DF039265F718800BC4B27 /* MainView.swift in Sources */,
+				D975ACD926650CE1006CA0A4 /* TaskTimeSortOptions.swift in Sources */,
 				D9CDEEF926626F9F00AD6564 /* TaskCell.swift in Sources */,
 				D90DF05B265F7C1D00BC4B27 /* EventMonitor.swift in Sources */,
 				D90DF052265F730C00BC4B27 /* StatusBarController.swift in Sources */,

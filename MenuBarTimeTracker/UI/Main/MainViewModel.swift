@@ -73,7 +73,7 @@ final class MainViewModel: ObservableObject, MainViewModelProtocol {
     }
     
     func fetchTimes() {
-        previousTimes = coreDataService.fetchTaskTimes()
+        previousTimes = coreDataService.fetchTaskTimes(sortBy: .newer)
     }
     
     func fetchCurrentTask() {

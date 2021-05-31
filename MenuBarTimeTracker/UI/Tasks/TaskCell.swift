@@ -25,6 +25,7 @@ struct TaskCell: View, ChoosedProtocol {
         .frame(minWidth: .zero, maxWidth: .infinity, alignment: .leading)
         .padding(4)
         .background(choosed ? Color(NSColor.selectedControlColor) : nil)
+        .contentShape(Rectangle())
         .cornerRadius(5)
         .onTapGesture {
             choosedDelegate?.setChoosed(model: model)

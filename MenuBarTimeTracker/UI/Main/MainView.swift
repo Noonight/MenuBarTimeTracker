@@ -23,7 +23,7 @@ struct MainView: View {
                         .fontWeight(.light)
                 }
                 
-                ScrollView {
+                ScrollView(showsIndicators: false) {
                     LazyVStack {
                         ForEach(viewModel.previousTimes) { (taskTime: TaskTime) in
                             TaskTimeCell(taskTime: taskTime)

@@ -37,7 +37,9 @@ struct TasksView: View {
     
     var body: some View {
         VStack {
-            ScrollView {
+            Text("Your targets")
+                .font(.title2)
+            ScrollView(showsIndicators: false) {
                 LazyVStack(alignment: .leading) {
                     ForEach(viewModel.tasks) { (task: Task) in
                         TaskCell(choosed: viewModel.isModelChoosed(task), model: task, choosedDelegate: viewModel)
@@ -53,7 +55,7 @@ struct TasksView: View {
                 Button {
                     showCreatePopover = true
                 } label: {
-                    Text("Create")
+                    Text("Add target")
                 }
                 .popover(isPresented: $showCreatePopover) { createTaskView }
             }

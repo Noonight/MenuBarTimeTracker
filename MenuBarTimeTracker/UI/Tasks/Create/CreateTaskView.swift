@@ -49,7 +49,7 @@ struct CreateTaskView: View {
                         self.isPopovered = false
                     }
                 } label: {
-                    Text("Create")
+                    Text("Save")
                 }
             }
         }

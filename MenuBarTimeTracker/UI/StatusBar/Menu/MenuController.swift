@@ -23,6 +23,12 @@ class MenuController: NSObject {
             action: #selector(openAbout(_:)),
             keyEquivalent: "")
     }()
+    private var dev: NSMenuItem = {
+        NSMenuItem(
+            title: "Dev",
+            action: #selector(openDev(_:)),
+            keyEquivalent: "")
+    }()
     private var quit: NSMenuItem = {
         NSMenuItem(
             title: "Quit",
@@ -30,7 +36,7 @@ class MenuController: NSObject {
             keyEquivalent: "")
     }()
     
-    var coordinator: (Settings & About)?
+    var coordinator: (Settings & About & Dev)?
     
     convenience init(coordinator: MenuCoordinator) {
         self.init()
@@ -44,10 +50,13 @@ class MenuController: NSObject {
         menu.delegate = self
         settings.target = self
         about.target = self
+        dev.target = self
         quit.target = self
         
         menu.addItem(settings)
         menu.addItem(about)
+        menu.addItem(NSMenuItem.separator())
+        menu.addItem(dev)
         menu.addItem(NSMenuItem.separator())
         menu.addItem(quit)
     }
@@ -58,6 +67,10 @@ class MenuController: NSObject {
     
     @objc func openAbout(_ sender: NSMenu) {
         coordinator?.presentAbout()
+    }
+    
+    @objc func openDev(_ sender: NSMenu) {
+        coordinator?.presentDev()
     }
     
     @objc func quit(_ sender: NSMenu) {

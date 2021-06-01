@@ -18,6 +18,10 @@
 		D975ACD926650CE1006CA0A4 /* TaskTimeSortOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D975ACD826650CE1006CA0A4 /* TaskTimeSortOptions.swift */; };
 		D975ACDD2665E37D006CA0A4 /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D975ACDC2665E37D006CA0A4 /* EditTaskView.swift */; };
 		D975ACE2266606DF006CA0A4 /* ViewStateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D975ACE1266606DF006CA0A4 /* ViewStateProtocol.swift */; };
+		D975ACE626667262006CA0A4 /* DeveloperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D975ACE526667262006CA0A4 /* DeveloperView.swift */; };
+		D975ACE9266672CA006CA0A4 /* DeveloperViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D975ACE8266672CA006CA0A4 /* DeveloperViewModel.swift */; };
+		D975ACEC26669CFA006CA0A4 /* Dev.swift in Sources */ = {isa = PBXBuildFile; fileRef = D975ACEB26669CFA006CA0A4 /* Dev.swift */; };
+		D975ACEF26669D87006CA0A4 /* DevCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D975ACEE26669D87006CA0A4 /* DevCoordinator.swift */; };
 		D9876FF72660EADA00FB05CC /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9876FF62660EADA00FB05CC /* MenuController.swift */; };
 		D987701E2660EFDC00FB05CC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D987701D2660EFDC00FB05CC /* SettingsView.swift */; };
 		D98770252660F51800FB05CC /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98770242660F51800FB05CC /* SettingsCoordinator.swift */; };
@@ -67,6 +71,10 @@
 		D975ACD826650CE1006CA0A4 /* TaskTimeSortOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTimeSortOptions.swift; sourceTree = "<group>"; };
 		D975ACDC2665E37D006CA0A4 /* EditTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
 		D975ACE1266606DF006CA0A4 /* ViewStateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStateProtocol.swift; sourceTree = "<group>"; };
+		D975ACE526667262006CA0A4 /* DeveloperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperView.swift; sourceTree = "<group>"; };
+		D975ACE8266672CA006CA0A4 /* DeveloperViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperViewModel.swift; sourceTree = "<group>"; };
+		D975ACEB26669CFA006CA0A4 /* Dev.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dev.swift; sourceTree = "<group>"; };
+		D975ACEE26669D87006CA0A4 /* DevCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevCoordinator.swift; sourceTree = "<group>"; };
 		D9876FF62660EADA00FB05CC /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		D987701D2660EFDC00FB05CC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D98770242660F51800FB05CC /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
@@ -158,6 +166,7 @@
 		D90DF04D265F71AC00BC4B27 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				D975ACE42666723D006CA0A4 /* Developer */,
 				D9CDEF092662931E00AD6564 /* Styling */,
 				D9CDEEF326626F3000AD6564 /* Tasks */,
 				D98770212660F4C100FB05CC /* Main */,
@@ -212,6 +221,15 @@
 			path = Architecture;
 			sourceTree = "<group>";
 		};
+		D975ACE42666723D006CA0A4 /* Developer */ = {
+			isa = PBXGroup;
+			children = (
+				D975ACE526667262006CA0A4 /* DeveloperView.swift */,
+				D975ACE8266672CA006CA0A4 /* DeveloperViewModel.swift */,
+			);
+			path = Developer;
+			sourceTree = "<group>";
+		};
 		D987701C2660EFD100FB05CC /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +254,7 @@
 				D987702F266100CD00FB05CC /* MenuCoordinator.swift */,
 				D98770242660F51800FB05CC /* SettingsCoordinator.swift */,
 				D987704626611A7500FB05CC /* AboutCoordinator.swift */,
+				D975ACEE26669D87006CA0A4 /* DevCoordinator.swift */,
 				D98770392661161600FB05CC /* Menu */,
 				D98770362661037C00FB05CC /* Base */,
 			);
@@ -257,6 +276,7 @@
 			children = (
 				D987703A2661162300FB05CC /* Settings.swift */,
 				D9877041266119BC00FB05CC /* About.swift */,
+				D975ACEB26669CFA006CA0A4 /* Dev.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -468,6 +488,7 @@
 				D9CDEEF926626F9F00AD6564 /* TaskCell.swift in Sources */,
 				D90DF05B265F7C1D00BC4B27 /* EventMonitor.swift in Sources */,
 				D90DF052265F730C00BC4B27 /* StatusBarController.swift in Sources */,
+				D975ACEF26669D87006CA0A4 /* DevCoordinator.swift in Sources */,
 				D987703F2661193C00FB05CC /* AboutView.swift in Sources */,
 				D9CDEEED26624B8900AD6564 /* CoreDataHelper.swift in Sources */,
 				D9CDEEC326623AF000AD6564 /* View+Frame.swift in Sources */,
@@ -477,10 +498,12 @@
 				D98770252660F51800FB05CC /* SettingsCoordinator.swift in Sources */,
 				D9CDEEDF266248C700AD6564 /* Task+CoreDataClass.swift in Sources */,
 				D90DF037265F718800BC4B27 /* AppDelegate.swift in Sources */,
+				D975ACE9266672CA006CA0A4 /* DeveloperViewModel.swift in Sources */,
 				D9CDEEE6266248F300AD6564 /* TaskTime+CoreDataProperties.swift in Sources */,
 				D987705326622D4F00FB05CC /* ClosableWindow.swift in Sources */,
 				D9CDEF212663F54300AD6564 /* TimeInterval+String.swift in Sources */,
 				D9CDEF012662718500AD6564 /* CreateTaskView.swift in Sources */,
+				D975ACE626667262006CA0A4 /* DeveloperView.swift in Sources */,
 				D9CDEEE0266248C700AD6564 /* Task+CoreDataProperties.swift in Sources */,
 				D9CDEEE5266248F300AD6564 /* TaskTime+CoreDataClass.swift in Sources */,
 				D9CDEEB9266232AD00AD6564 /* MainViewModel.swift in Sources */,
@@ -488,6 +511,7 @@
 				D975ACDD2665E37D006CA0A4 /* EditTaskView.swift in Sources */,
 				D9877030266100CD00FB05CC /* MenuCoordinator.swift in Sources */,
 				D9877042266119BC00FB05CC /* About.swift in Sources */,
+				D975ACEC26669CFA006CA0A4 /* Dev.swift in Sources */,
 				D9876FF72660EADA00FB05CC /* MenuController.swift in Sources */,
 				D9CDEEF526626F4A00AD6564 /* TasksView.swift in Sources */,
 				D975ACE2266606DF006CA0A4 /* ViewStateProtocol.swift in Sources */,

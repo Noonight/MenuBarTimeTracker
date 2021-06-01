@@ -17,6 +17,7 @@ protocol TaskTimeCoreDataServiceProtocol {
 
 protocol TaskCoreDataServiceProtocol {
     func findByUUID(uuid: UUID) -> Task?
+    func fetchTasks(filterByName: String?) -> [Task]
     func fetchTasks() -> [Task]
     func addTask(name: String, description: String)
     func addNewTask(name: String, description: String) -> Task
@@ -107,6 +108,22 @@ extension CoreDataService: TaskCoreDataServiceProtocol {
     func fetchTasks() -> [Task] {
         var result: Result<[Task], Error>
         result = coreDataHelper.fetch(Task.self)
+        switch result {
+        case .success(let tasks):
+            return tasks
+        case .failure(let error):
+            fatalError(error.localizedDescription)
+        }
+    }
+    
+    func fetchTasks(filterByName: String? = nil) -> [Task] {
+        var result: Result<[Task], Error>
+        if let name = filterByName {
+            let predicate = NSPredicate(format: "name CONTAINS[cd] %@", name)
+            result = coreDataHelper.fetch(Task.self, predicate: predicate)
+        } else {
+            result = coreDataHelper.fetch(Task.self)
+        }
         switch result {
         case .success(let tasks):
             return tasks

@@ -29,6 +29,8 @@ final class TasksViewModel: ObservableObject, TasksViewModelProtocol {
         self.userDefaultsService = userDefaultsService
     }
     
+    // MARK: - TasksViewModelProtocol
+    
     func onAppear() {
         fetchTasks()
         fetchCurrentTask()
@@ -42,6 +44,8 @@ final class TasksViewModel: ObservableObject, TasksViewModelProtocol {
         guard let currentTaskUUID = userDefaultsService.getCurrentTaskID() else { return }
         choosed = coreDataService.findByUUID(uuid: currentTaskUUID)
     }
+    
+    // MARK: - OneOfManyChooseProtocol
     
     func isModelChoosed(_ model: DataModel) -> Bool {
         if choosed == model {
@@ -59,12 +63,16 @@ final class TasksViewModel: ObservableObject, TasksViewModelProtocol {
     }
 }
 
+// MARK: - CreateTaskDelegate
+
 extension TasksViewModel: CreateTaskDelegate {
     func create(name: String, description: String) {
         coreDataService.addTask(name: name, description: description)
         fetchTasks()
     }
 }
+
+// MARK: - TaskMenuDelegate
 
 extension TasksViewModel: TaskMenuDelegate {
     func edit(task: Task) {

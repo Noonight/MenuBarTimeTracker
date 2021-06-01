@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TaskTimeSortOptions {
-    case newer
-    case older
+enum TaskTimeSortOptions: String, CaseIterable {
+    case newer = "Newer"
+    case older = "Older"
 }

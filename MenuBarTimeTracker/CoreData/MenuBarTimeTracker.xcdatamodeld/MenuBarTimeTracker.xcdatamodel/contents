@@ -4,7 +4,7 @@
         <attribute name="describe" optional="YES" attributeType="String" defaultValueString=""/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" attributeType="String" defaultValueString=""/>
-        <relationship name="taskTimes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TaskTime" inverseName="task" inverseEntity="TaskTime"/>
+        <relationship name="taskTimes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TaskTime" inverseName="task" inverseEntity="TaskTime"/>
     </entity>
     <entity name="TaskTime" representedClassName="TaskTime" syncable="YES">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>

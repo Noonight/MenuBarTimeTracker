@@ -42,7 +42,7 @@ struct TasksView: View {
             ScrollView(showsIndicators: false) {
                 LazyVStack(alignment: .leading) {
                     ForEach(viewModel.tasks) { (task: Task) in
-                        TaskCell(choosed: viewModel.isModelChoosed(task), model: task, choosedDelegate: viewModel)
+                        TaskCell(choosed: viewModel.isModelChoosed(task), model: task, choosedDelegate: viewModel, menuDelegate: viewModel)
                     }
                 }
             }

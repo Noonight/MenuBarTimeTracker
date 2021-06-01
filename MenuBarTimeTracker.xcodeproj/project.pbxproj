@@ -16,6 +16,8 @@
 		D90DF052265F730C00BC4B27 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90DF051265F730C00BC4B27 /* StatusBarController.swift */; };
 		D90DF05B265F7C1D00BC4B27 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90DF05A265F7C1D00BC4B27 /* EventMonitor.swift */; };
 		D975ACD926650CE1006CA0A4 /* TaskTimeSortOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D975ACD826650CE1006CA0A4 /* TaskTimeSortOptions.swift */; };
+		D975ACDD2665E37D006CA0A4 /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D975ACDC2665E37D006CA0A4 /* EditTaskView.swift */; };
+		D975ACE2266606DF006CA0A4 /* ViewStateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D975ACE1266606DF006CA0A4 /* ViewStateProtocol.swift */; };
 		D9876FF72660EADA00FB05CC /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9876FF62660EADA00FB05CC /* MenuController.swift */; };
 		D987701E2660EFDC00FB05CC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D987701D2660EFDC00FB05CC /* SettingsView.swift */; };
 		D98770252660F51800FB05CC /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98770242660F51800FB05CC /* SettingsCoordinator.swift */; };
@@ -63,6 +65,8 @@
 		D90DF051265F730C00BC4B27 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
 		D90DF05A265F7C1D00BC4B27 /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		D975ACD826650CE1006CA0A4 /* TaskTimeSortOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTimeSortOptions.swift; sourceTree = "<group>"; };
+		D975ACDC2665E37D006CA0A4 /* EditTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
+		D975ACE1266606DF006CA0A4 /* ViewStateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStateProtocol.swift; sourceTree = "<group>"; };
 		D9876FF62660EADA00FB05CC /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		D987701D2660EFDC00FB05CC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D98770242660F51800FB05CC /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
@@ -192,6 +196,22 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		D975ACDB2665E369006CA0A4 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				D975ACDC2665E37D006CA0A4 /* EditTaskView.swift */,
+			);
+			path = Edit;
+			sourceTree = "<group>";
+		};
+		D975ACE0266606B9006CA0A4 /* Architecture */ = {
+			isa = PBXGroup;
+			children = (
+				D975ACE1266606DF006CA0A4 /* ViewStateProtocol.swift */,
+			);
+			path = Architecture;
+			sourceTree = "<group>";
+		};
 		D987701C2660EFD100FB05CC /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,6 +318,7 @@
 		D9CDEED42662455000AD6564 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				D975ACE0266606B9006CA0A4 /* Architecture */,
 				D9CDEEE926624B7500AD6564 /* CoreData */,
 				D9CDEED52662455B00AD6564 /* DateHelper.swift */,
 			);
@@ -326,6 +347,7 @@
 		D9CDEEF326626F3000AD6564 /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
+				D975ACDB2665E369006CA0A4 /* Edit */,
 				D9CDEEFF2662717900AD6564 /* Create */,
 				D9CDEEF426626F4A00AD6564 /* TasksView.swift */,
 				D9CDEEFB2662706E00AD6564 /* TasksViewModel.swift */,
@@ -463,10 +485,12 @@
 				D9CDEEE5266248F300AD6564 /* TaskTime+CoreDataClass.swift in Sources */,
 				D9CDEEB9266232AD00AD6564 /* MainViewModel.swift in Sources */,
 				D987703B2661162300FB05CC /* Settings.swift in Sources */,
+				D975ACDD2665E37D006CA0A4 /* EditTaskView.swift in Sources */,
 				D9877030266100CD00FB05CC /* MenuCoordinator.swift in Sources */,
 				D9877042266119BC00FB05CC /* About.swift in Sources */,
 				D9876FF72660EADA00FB05CC /* MenuController.swift in Sources */,
 				D9CDEEF526626F4A00AD6564 /* TasksView.swift in Sources */,
+				D975ACE2266606DF006CA0A4 /* ViewStateProtocol.swift in Sources */,
 				D9CDEEBE266234DE00AD6564 /* TimerState.swift in Sources */,
 				D90DF03C265F718800BC4B27 /* MenuBarTimeTracker.xcdatamodeld in Sources */,
 				D987704726611A7600FB05CC /* AboutCoordinator.swift in Sources */,

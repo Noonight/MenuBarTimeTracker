@@ -8,6 +8,12 @@
 import Foundation
 import Combine
 
+enum MainViewState: ViewStates {
+    case noIntervals
+    case noTask
+    case good
+}
+
 protocol MainViewModelProtocol {
     var timerInterval: TimeInterval { get set }
     var timerState: TimerState { get set }
@@ -25,11 +31,13 @@ protocol MainViewModelProtocol {
     func stopTimer()
 }
 
-final class MainViewModel: ObservableObject, MainViewModelProtocol {
+final class MainViewModel: ObservableObject, MainViewModelProtocol, ViewStateProtocol {
     @Published var timerInterval: TimeInterval = TimeInterval.init()
     @Published var timerState: TimerState = .pause
     @Published var previousTimes: [TaskTime] = [TaskTime]()
     @Published var currentTask: Task? = nil
+    
+    @Published var viewState: MainViewState = .noTask
     
     @Published var showTasksPopover: Bool = false
     
@@ -52,6 +60,7 @@ final class MainViewModel: ObservableObject, MainViewModelProtocol {
             .sink { value in
                 self.fetchCurrentTask()
                 self.fetchTimes()
+                self.checkState()
             }
             .store(in: &cancellableSet)
         
@@ -68,9 +77,16 @@ final class MainViewModel: ObservableObject, MainViewModelProtocol {
             .store(in: &cancellableSet)
     }
     
-    func onAppear() {
+    private func updateUI() {
         fetchCurrentTask()
         fetchTimes()
+        checkState()
+    }
+    
+    // MARK: - MainViewModelProtocol
+    
+    func onAppear() {
+        updateUI()
     }
     
     func fetchTimes() {
@@ -81,6 +97,8 @@ final class MainViewModel: ObservableObject, MainViewModelProtocol {
         guard let uuid = userDefaultsService.getCurrentTaskID() else { return }
         currentTask = coreDataService.findByUUID(uuid: uuid)
     }
+    
+    // MARK: - Timer behavior
     
     func startTimer() {
         timerService.start()
@@ -101,7 +119,34 @@ final class MainViewModel: ObservableObject, MainViewModelProtocol {
             time: curDate,
             task: curTask)
         
-        fetchTimes()
         timerService.stop()
+        
+        updateUI()
+    }
+    
+    // MARK: - ViewStateProtocol
+    
+    func checkState() {
+        if currentTask == nil {
+            viewState = .noTask
+            return
+        }
+        if currentTask != nil && previousTimes.count == 0 {
+            viewState = .noIntervals
+            return
+        }
+        viewState = .good
+    }
+}
+
+// MARK: - CreateTaskDelegate
+
+extension MainViewModel: CreateTaskDelegate {
+    func create(name: String, description: String) {
+        let newTask: Task = coreDataService.addNewTask(name: name, description: description)
+        if let uuid = newTask.id {
+            userDefaultsService.setCurrentTaskID(uuid)
+        }
+        updateUI()
     }
 }

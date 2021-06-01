@@ -65,3 +65,14 @@ extension TasksViewModel: CreateTaskDelegate {
         fetchTasks()
     }
 }
+
+extension TasksViewModel: TaskMenuDelegate {
+    func edit(task: Task) {
+        coreDataService.updateTask(task)
+    }
+    
+    func delete(task: Task) {
+        coreDataService.deleteTask(task: task)
+        fetchTasks()
+    }
+}

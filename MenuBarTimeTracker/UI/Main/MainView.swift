@@ -11,9 +11,10 @@ struct MainView: View {
     
     @StateObject var viewModel = MainViewModel()
     
+    @State var showCreateTaskPopover: Bool = false
+    
     var body: some View {
         ZStack {
-            empty
             VStack {
                 VStack(alignment: .center, spacing: 4) {
                     Text(viewModel.timerInterval.toString(format: .HHmmss))
@@ -23,13 +24,7 @@ struct MainView: View {
                         .fontWeight(.light)
                 }
                 
-                ScrollView(showsIndicators: false) {
-                    LazyVStack {
-                        ForEach(viewModel.previousTimes) { (taskTime: TaskTime) in
-                            TaskTimeCell(taskTime: taskTime)
-                        }
-                    }
-                }
+                stateOfView
                 
                 Spacer()
                 Divider()
@@ -54,6 +49,42 @@ struct MainView: View {
             .padding(.top, 4)
             .onAppear {
                 viewModel.onAppear()
+            }
+        }
+    }
+    
+    @ViewBuilder var stateOfView: some View {
+        switch viewModel.viewState {
+        case .noTask:
+            VStack(alignment: .center, spacing: 8) {
+                Button {
+                    showCreateTaskPopover = true
+                } label: {
+                    Text("Add")
+                }
+                .popover(isPresented: $showCreateTaskPopover) {
+                    CreateTaskView(isPopovered: $showCreateTaskPopover, creatingDelegate: viewModel)
+                }
+                Text("To start add your first target or choose one")
+                    .font(.caption)
+                    .fontWeight(.light)
+                    .multilineTextAlignment(.center)
+            }
+        case .noIntervals:
+            VStack(alignment: .center, spacing: 8) {
+                Image(systemName: "moon.stars.fill")
+                Text("There's no intervals for today")
+                    .font(.caption)
+                    .fontWeight(.light)
+                    .multilineTextAlignment(.center)
+            }
+        case .good:
+            ScrollView(showsIndicators: false) {
+                LazyVStack {
+                    ForEach(viewModel.previousTimes) { (taskTime: TaskTime) in
+                        TaskTimeCell(taskTime: taskTime)
+                    }
+                }
             }
         }
     }
@@ -96,18 +127,6 @@ struct MainView: View {
             } label: {
                 Image(systemName: "arrowtriangle.right.fill")
                     .foregroundColor(.red)
-            }
-        }
-    }
-    
-    @ViewBuilder var empty: some View {
-        if viewModel.previousTimes.count == 0 {
-            VStack(alignment: .center, spacing: 8) {
-                Image(systemName: "moon.stars.fill")
-                Text("There's no intervals for today")
-                    .font(.caption)
-                    .fontWeight(.light)
-                    .multilineTextAlignment(.center)
             }
         }
     }

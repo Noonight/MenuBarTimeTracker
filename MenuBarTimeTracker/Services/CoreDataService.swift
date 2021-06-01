@@ -19,6 +19,7 @@ protocol TaskCoreDataServiceProtocol {
     func findByUUID(uuid: UUID) -> Task?
     func fetchTasks() -> [Task]
     func addTask(name: String, description: String)
+    func addNewTask(name: String, description: String) -> Task
     func deleteTask(task: Task)
     func updateTask(_ task: Task)
 }
@@ -121,6 +122,16 @@ extension CoreDataService: TaskCoreDataServiceProtocol {
         task.name = name
         task.describe = description
         coreDataHelper.create(task)
+    }
+    
+    func addNewTask(name: String, description: String) -> Task {
+        let entity = Task.entity()
+        let task = Task(entity: entity, insertInto: coreDataHelper.context)
+        task.id = UUID()
+        task.name = name
+        task.describe = description
+        coreDataHelper.create(task)
+        return task
     }
     
     func deleteTask(task: Task) {
